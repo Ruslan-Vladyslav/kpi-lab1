@@ -16,6 +16,8 @@ func TimeHandler(w http.ResponseWriter, r *http.Request) {
 
 	log.Printf("GET /time -> %s\n", currentTime)
 
+	log.Printf("Request from %s to %s", r.RemoteAddr, r.URL.Path)
+
 	response := TimeResponse{
 		Time: currentTime,
 	}
