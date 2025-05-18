@@ -1,14 +1,17 @@
 package main
 
 import (
-	"fmt"
-	"time"
+	"log"
+	"net/http"
+	"kpi-lab1/server"
 )
 
-func getCurrentTime() string {
-	return time.Now().Format(time.RFC3339)
-}
-
 func main() {
-	fmt.Println(getCurrentTime())
+	http.HandleFunc("/time", server.TimeHandler)
+
+	log.Println("Сервер запущен на http://localhost:8795")
+	err := http.ListenAndServe(":8795", nil)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
