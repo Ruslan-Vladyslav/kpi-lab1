@@ -30,6 +30,6 @@ func TimeHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Handle error
 	if err != nil {
-		return
+		log.Fatal(err)
 	}
 }
