@@ -28,7 +28,7 @@ func TimeHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	err := json.NewEncoder(w).Encode(response)
 
-	// Handle error
+	// If error -- log
 	if err != nil {
 		log.Fatal(err)
 	}
